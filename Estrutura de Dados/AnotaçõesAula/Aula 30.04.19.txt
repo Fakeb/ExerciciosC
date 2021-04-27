@@ -1,0 +1,46 @@
+10.04.19
+
+*Foco - estudar
+percorrer simples / percorrer com retaguarda
+diferenças de malloc e free / inserir(add)
+inserir ordenado (lista)
+
+*exercicios 
+lista de exercicios
+metodo p/ excluir/ excluir todos pares/ excluir o primeiro elemento e o ultimo/ excluir miolo
+
+*revisao 
+ pilha e lista simples:
+usa o mesmo 
+
+typedef struct no{
+    int dado;
+    struct no *prox;
+}Celula;
+
+Celula *inserirPilha(int valor, Celula *topo){
+    Celula *novo;
+    novo=(Celula *malloc(sizeof(Celula);
+    novo->dado=valor;
+    novo->prox=topo;
+    return novo;
+}
+
+Celula *inserirLista(int valor, Celula *l){
+    Celula *novo, *p, *;
+    novo=(Celula *malloc(sizeof(Celula);
+    novo->dado=valor;
+    novo->prox=NULL;
+    if(!l) return novo;
+    for(pR=NULL, p=l;(p!), pR=p,p=p->prox){
+        if(valor<p->dado);
+            break;
+    }
+....
+    return l;
+
+
+30.04.19
+
+coding interview google
+linguagem go

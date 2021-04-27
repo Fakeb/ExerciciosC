@@ -1,0 +1,123 @@
+Recursão: Diferente do que repetição, repetição seria se repetisse as mesmas coisas sempre, enquanto recursão, se modifica os dados que chegam no método a cada iteração;
+    
+    Empilhamento:
+    
+    A - Inicialização da variável;
+    B - Teste de parada;
+    C - Transformação da variável de controle no ponto de recursão;
+    
+    Desvantagens: Consumo de recursos/memória
+    Vantagens: Ter um código simples e execução de códigos no empilhamento/desempilhamento;
+    
+---
+
+Árvores: Estruturas de dados abstratas, não lineares;
+
+    Há um nó raiz, chamado pai e 0 ou N nós filhos;
+    A raiz conhece os filhos (tem os endereços de seus filhos);
+    Os filhos não conhecem os pais (não tem endereços dos pais);
+    O mecanismo de conexão filho-pai se dá pelo retorno do empilhamento;
+    
+    Vantagens: Se ordenada, otimiza o processo de pesquisa, se aplica muito em serviços de pesquisa;
+    Desvantagens: Utilização de recursão;
+    
+    Possui as operações:
+        
+        1) Percorrer a estrutura de árvore;
+            1.1) Percurso Profundidade: 
+                1.1.1) Visita raiz, vai para esquerda e depois para a direita (RED/Pré-fixado);
+                
+                    Exemplo:
+                    
+                            void exibir (Arvore *r){
+                         
+                                if(r){
+
+                                    exibir(r->esq);
+                                    printf("%d\t", r->dado);
+                                    exibir(r->dir);
+                            
+                                }
+                         
+                         }
+                         
+                1.1.2) ERD ou In-Fixado: Vai para esquerda, visita raiz, vai para direita;
+                1.1.3) EDR ou Pós-Fixado: Vai para esquerda, vai para direita, visita raíz;
+                1.1.4) Exemplo: RED (15, 5, 2, 10, 20), ERD (2, 5, 10, 15, 20) e EDR (2, 10, 5, 20, 15);
+                
+        2) Inserção nas folhas (espaços em branco) da estrutura;
+        3) Remoção;
+        4) Pesquisa -> Dependem da ordenação (se está ordenado, é melhor em questão de processamento);
+        5) Recuperação -> Eficácia/relevância da pesquisa (ex.: Pesquisa Google);
+    
+    Conceitos:  Nó (nodo), Raiz (nó principal), nó-filhos, nível (altura da árvore, sendo a raiz de nível 0), altura (se conta com a raiz, diferente do que a contagem do nível), folhas (nós em branco/sem filhos), sub-árvore/sub-raíz;
+                A computação prefere árvores binárias (dois filhos) de busca;
+
+    A.B.Pesquisa:
+    
+        Regra:
+        Menores à esquerda da raiz (começo checaria se o dado novo é maior ou menor que o inicial da raiz, e segue perguntando pro resto das folhas);
+        Maiores à direita da raiz;
+        
+        Typedef struct no{
+        
+            int dado;
+            struct no *esq, *dir;
+        
+        }Arvore;
+ 
+ ---
+ 
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct no{
+	
+	int dado;
+	struct no *esq, *dir; 
+	
+}Arvore;
+
+Arvore *inserir(int valor, Arvore *r){
+	
+	if(r){
+		
+		if(valor<r->dado){
+		
+			r->esq = inserir(valor, r->esq);
+		
+		}else{
+			
+			r->dir = inserir(valor, r->dir);
+			
+		}
+		
+		return r;
+	
+	}
+	
+	if(!r){
+		
+		Arvore *novo = (Arvore*)malloc(sizeof(Arvore));
+		novo->dado=valor;
+		novo->esq=NULL;
+		novo->dir=NULL;
+		
+		return novo;
+		
+	}
+	
+}
+
+int main(int argc, char *argv[]) {
+	
+	Arvore *raiz = NULL;
+	raiz = inserir(10, raiz);
+	raiz = inserir(50, raiz);
+	raiz = inserir(20, raiz);
+	raiz = inserir(5, raiz);
+	
+	return 0;
+}
+
+ ---

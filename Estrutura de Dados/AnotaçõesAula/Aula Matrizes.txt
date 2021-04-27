@@ -1,0 +1,115 @@
+Matrizes Especiais: São ruins, grandes demais (linhas e colunas);
+                    Tem células vazias;
+                    Gera mais uso do processador/memória;
+                    Custo;
+                    Computacional;
+                    
+    Exemplo: Usadas para processar mídias ou planilhas;
+    
+    Solução: Converter para uma lista com dados:
+             Linha, Coluna e valores/conteúdos;
+             
+    Tipos: Diagonal Principal (i==j) / Secundária;
+           Triangular Principal (Superior j>i, Inferior i>j);
+           Triangular Secundária (Superior i + j < n - 1, Inferior i + j > n - 1);
+           Esparsas = Preenchidas aleatóriamente;
+
+--
+
+Recursão: Repetição (for, while, do while);
+          Rescurso do Sistema Operacional de empilhamento que gera uma repetição;
+          
+          [A] I = Inicialização da variável de controle;
+          [B] Todos tem condições para parar/iniciar;
+          [C] Incremento da variável de controle;
+          
+void escrever(int n){
+    
+    int i;
+    
+    for(i=1;i<=n;i++){
+    
+        printf("%d/t",i);
+    
+    }
+    
+}
+    
+void escrever(int n){
+    
+    int i;
+    
+    for(;n>0;n--){
+    
+        printf("%d/t",i);
+        
+    }
+    
+}
+
+void escrever(int v[], int n){
+    
+    int i;
+    
+    for(;n>0;n--){
+    
+        printf("%d/t", v[n-1]);
+        
+    }
+    
+}
+
+void imprimir(Celula *l){
+    
+    for(;l;l=l->prox){
+    
+        printf("%d/t", l->dado);
+        
+    }
+    
+}
+
+void imprimirD(int n){
+    
+    for(;n>0;n--){
+    
+        printf("%d\n", n);
+        
+    }
+    
+}
+
+void imprimirDR(int n){    \\ Inicialização;
+    
+    if(n>0){               \\ Ponto de parada;
+    
+        printf("%d\n", n); 
+        imprimirDR(n-1);   \\ Incremento/Decremento da variável;
+        
+    }
+    
+}
+
+int main(int argc, char *argv[]) {
+	
+	int inicio, fim;
+	
+	scanf("%d",&inicio);
+	scanf("%d",&fim);
+	
+	imprimirIntervalo(inicio, fim);
+	
+	return 0;
+}
+
+void imprimirIntervalo(int ini, int fim){
+	
+	if(ini<=fim){
+		
+		printf("%d\n",ini);
+		
+		imprimirIntervalo(ini+1, fim);
+		
+	}
+	
+}

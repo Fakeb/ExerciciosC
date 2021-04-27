@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+Uso de argumentos no méotodo main() de um programa, possibilita a passagem
+de parâmetros/argumentos para o programa via linha de comando no momento
+que entra em execução. Para isso são necessários dois parâmetros no main():
+1 - variável do tipo int para guardar a quantidade de argumentos;
+2 - variável vetor de string para guardar os argumentos passados na linha de comando.
+
+Por exemplo, 
+	- int argc 
+	- char *argv[]
+
+O código deste programa recebe em linha de comando uma relação de arquivos,
+imprimindo se existem ou não no computador. Por exemplo
+
+C:\>argumentoRevisao texto1.txt entrada.txt codigo.c
+
+*/
+
+int main(int argc, char *argv[]) {
+	FILE *arquivoProcurador;
+	int i;
+
+	if (argc <= 1) {
+		printf("\nFalta informar a lista de arquivos\n");
+		exit(0);
+	}
+	for (i = 1; i < argc; i++) {
+		arquivoProcurador = fopen(argv[i],"r");
+		if (!arquivoProcurador) printf("Arquivo: %s não localizado\n", argv[i]);
+		else {
+			printf("Arquivo: %s localizado\n", argv[i]);
+			fclose(arquivoProcurador);
+		}
+	}
+	return 1;
+}
