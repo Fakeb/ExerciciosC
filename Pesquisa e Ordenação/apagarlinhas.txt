@@ -1,0 +1,49 @@
+//excluindo linha
+public void excluirLinha(String lutador){
+        try{
+            //escrita
+            FileWriter arq = new FileWriter("Fichas.txt",true);
+            //usar false para sobreescrever
+            //leitura
+            File file = new File("Fichas.txt");
+            Scanner sc = new Scanner(file);
+        
+            //Linha que bugou reiner
+            String conteudo = "",conteudolutador = null;
+            
+            //Guarda os dados do arquivo numa variavel
+            while(sc.hasNextLine()){
+                String linha = sc.nextLine();
+                //conteudo..    
+                
+                if(linha.contains(lutador)){
+                    //conteudolutador = linha;
+                    
+                    //conteudolutador = linha.substring((0),(linha.lastIndexOf(","))) + ",";
+                    
+                    
+                }else{
+                   // conteudo += linha;
+                    conteudo += linha + "\r\n";
+                }  
+            }
+       
+            //sobreescrevendo
+            arq = new FileWriter("Fichas.txt",false);
+            file = new File("Fichas.txt");
+            sc = new Scanner(file);
+            
+            arq.write(conteudo);
+            //escrevendo o lutador que ser� modificado
+            //arq.write(conteudolutador);
+
+            arq.close();
+            sc.close();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }

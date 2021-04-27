@@ -1,0 +1,83 @@
+--------------------Exercício 1--------------------
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,soma=0;
+
+    printf("Soma infinita, 0= Fim do Programa\n\n");
+
+    while(n!=0){
+        printf("Digite um numero: ");
+        scanf("%d",&n);
+        soma=soma+n;
+    }
+
+    printf("\n\nSoma Final:%d \n\n",soma);
+
+    system("pause");
+    return 0;
+}
+
+
+--------------------Exercício 2--------------------
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float ppar=0,pimpar=0,par=0,impar=0;
+    int valor,cont=0;
+
+    printf("Digite um numero par ou impar (Digite 0 para terminar)\n\n");
+
+    while(valor!=0){
+
+        printf("Digite um numero: ");
+        scanf("%d",&valor);
+        cont++;
+
+        if(valor%2==0){
+            par++;
+        }
+
+        else{
+            impar++;
+        }
+    }
+
+    par--;
+    cont--;
+    pimpar = (impar/cont)*100;
+    ppar = (par/cont)*100;
+
+    printf("\nImpar foi digitado %.f vezes, ou seja, %.2f%%",impar,pimpar);
+
+    printf("\nPar foi digitado %.f vezes, ou seja, %.2f%%\n\n",par,ppar);
+
+    system("pause");
+    return 0;
+}
+
+
+--------------------Exercício 3--------------------
+
+
+int main()
+{
+    int base=30,ast,i;
+
+    for (i=1;i<=base;i++){
+        for (ast=1;ast<=i;ast++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    system("pause");
+    return 0;
+}

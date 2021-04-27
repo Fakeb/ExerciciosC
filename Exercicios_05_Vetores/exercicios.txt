@@ -1,6 +1,0 @@
-1 - o de "ontem"
-2 - ler 5 numeros inteiros, armazena-los em um vetor e exibir o resultado da soma de todos os elementos contidos no vetor.
-3 - ler 10 numeros inteiros, armazena-los em um vetor, dobrar o valor apenas dos numeros pares contidos nesse vetor e exibir o conteudo dele na tela
-4 - ler 10 numeros, armazena-los em um vetor e trocar os conteudos de posiçoes
-  ex 3974156820
-     0286514793
